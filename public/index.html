@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Falcons Media</title>
+  <title>Falcons Media | Cultural Fest</title>
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDR8B0ZKYF"></script>
@@ -11,12 +11,11 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-CDR8B0ZKYF');
   </script>
   
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
   <style>
@@ -26,18 +25,47 @@
       padding: 0;
     }
 
+    :root {
+      --splash-primary: #1a1225;
+      --splash-accent: #f7b733;
+      --splash-coral: #fc4a1a;
+      --splash-teal: #38b2ac;
+      --splash-purple: #805ad5;
+    }
+
     html, body {
       height: 100%;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Outfit', sans-serif;
       overflow: hidden;
     }
 
     body {
-      background: #000;
+      background: var(--splash-primary);
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+    }
+
+    /* Animated gradient background */
+    .gradient-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(ellipse at 20% 80%, rgba(248, 183, 51, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(252, 74, 26, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 40% 40%, rgba(128, 90, 213, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 70%, rgba(56, 178, 172, 0.1) 0%, transparent 50%);
+      z-index: 1;
+      animation: gradientShift 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes gradientShift {
+      0% { opacity: 0.8; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.1); }
     }
 
     /* Background image carousel */
@@ -47,7 +75,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 1;
+      z-index: 2;
     }
 
     .background-image {
@@ -59,34 +87,94 @@
       background-size: cover;
       background-position: center;
       opacity: 0;
-      transition: opacity 0.3s ease-in-out;
+      transition: opacity 1.2s ease-in-out;
+      filter: saturate(1.2);
     }
 
     .background-image.active {
-      opacity: 0.4;
+      opacity: 0.25;
     }
 
-    /* Dark overlay */
-    .overlay {
+    /* Mesh overlay for depth */
+    .mesh-overlay {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
-      z-index: 2;
+      background: 
+        linear-gradient(180deg, rgba(26,18,37,0.4) 0%, rgba(26,18,37,0.8) 100%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      z-index: 3;
+    }
+
+    /* Floating shapes */
+    .floating-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 4;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .shape-1 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, var(--splash-coral), var(--splash-accent));
+      top: -150px;
+      right: -100px;
+      animation-delay: 0s;
+      filter: blur(60px);
+    }
+
+    .shape-2 {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, var(--splash-purple), var(--splash-teal));
+      bottom: -100px;
+      left: -50px;
+      animation-delay: -5s;
+      filter: blur(50px);
+    }
+
+    .shape-3 {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, var(--splash-teal), var(--splash-accent));
+      top: 50%;
+      left: 10%;
+      animation-delay: -10s;
+      filter: blur(40px);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-30px) rotate(5deg); }
+      50% { transform: translateY(0) rotate(0deg); }
+      75% { transform: translateY(20px) rotate(-5deg); }
     }
 
     /* Splash screen container */
     .splash-container {
       position: relative;
-      z-index: 3;
+      z-index: 10;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      animation: splashFadeIn 0.8s ease-out;
+      padding: 2rem;
     }
 
     /* Main logo container */
@@ -96,58 +184,270 @@
     }
 
     .main-logo {
-      height: 120px;
+      height: 100px;
       width: auto;
-      filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1) drop-shadow(0 4px 20px rgba(247, 183, 51, 0.3));
       opacity: 0;
-      transform: scale(0.5);
-      animation: logoReveal 1.5s ease-out 0.3s forwards;
+      transform: scale(0.8) translateY(20px);
+      animation: logoFloat 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+    }
+
+    @keyframes logoFloat {
+      0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* Decorative ring around logo */
+    .logo-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 180px;
+      height: 180px;
+      border: 2px solid rgba(247, 183, 51, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      animation: ringExpand 1.5s ease-out 0.5s forwards;
+    }
+
+    .logo-ring::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border: 1px dashed rgba(247, 183, 51, 0.2);
+      border-radius: 50%;
+      animation: rotateSlow 30s linear infinite;
+    }
+
+    @keyframes ringExpand {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+      100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    @keyframes rotateSlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     /* Welcome text */
     .welcome-text {
       color: white;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 6vw, 3.5rem);
       font-weight: 600;
       opacity: 0;
-      transform: translateY(20px);
-      animation: textReveal 1s ease-out 0.8s forwards;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      margin-bottom: 1rem;
+      transform: translateY(30px);
+      animation: textSlide 0.8s ease-out 0.8s forwards;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .welcome-text span {
+      display: inline-block;
+      background: linear-gradient(135deg, #fff 0%, var(--splash-accent) 50%, var(--splash-coral) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .subtitle-text {
-      color: rgba(255,255,255,0.9);
-      font-size: 1.1rem;
-      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 400;
       opacity: 0;
       transform: translateY(20px);
-      animation: textReveal 1s ease-out 1s forwards;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      animation: textSlide 0.8s ease-out 1.1s forwards;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 1rem;
     }
 
-    /* Loading indicator */
-    .loading-indicator {
+    @keyframes textSlide {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Fest badge */
+    .fest-badge {
+      margin-top: 2rem;
+      padding: 0.6rem 1.5rem;
+      background: linear-gradient(135deg, rgba(247, 183, 51, 0.2), rgba(252, 74, 26, 0.2));
+      border: 1px solid rgba(247, 183, 51, 0.3);
+      border-radius: 50px;
+      color: var(--splash-accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: badgePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s forwards;
+    }
+
+    @keyframes badgePop {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Loading bar */
+    .loading-bar {
       position: absolute;
-      bottom: 10%;
+      bottom: 15%;
       left: 50%;
       transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
+      width: 120px;
+      height: 3px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
       opacity: 0;
-      animation: loadingFadeIn 0.5s ease-out 1.2s forwards;
+      animation: fadeIn 0.5s ease-out 1.6s forwards;
     }
 
-    .loading-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.7);
-      animation: loadingPulse 1.5s ease-in-out infinite;
+    .loading-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--splash-accent), var(--splash-coral));
+      border-radius: 10px;
+      animation: loadProgress 3.5s ease-in-out 1.8s forwards;
+      width: 0;
     }
 
-    .loading-dot:nth-child(2) {
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes loadProgress {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+
+    /* Entry text */
+    .entry-hint {
+      position: absolute;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out 2s forwards;
+    }
+
+    /* Fade out animation */
+    .splash-fade-out {
+      animation: fadeOutScale 0.8s ease-in forwards;
+    }
+
+    @keyframes fadeOutScale {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.05); }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .main-logo { height: 80px; }
+      .logo-ring { width: 150px; height: 150px; }
+      .shape-1 { width: 200px; height: 200px; }
+      .shape-2 { width: 150px; height: 150px; }
+      .shape-3 { width: 100px; height: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .main-logo { height: 70px; }
+      .logo-ring { width: 130px; height: 130px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated gradient background -->
+  <div class="gradient-bg"></div>
+  
+  <!-- Background image carousel -->
+  <div class="background-carousel" id="backgroundCarousel"></div>
+  
+  <!-- Mesh overlay -->
+  <div class="mesh-overlay"></div>
+
+  <!-- Floating shapes -->
+  <div class="floating-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  
+  <!-- Splash screen content -->
+  <div class="splash-container">
+    <div class="logo-container">
+      <div class="logo-ring"></div>
+      <img src="/img/falconswhite.png" alt="Falcons Logo" class="main-logo" />
+    </div>
+    
+    <h1 class="welcome-text"><span>FALCONS MEDIA</span></h1>
+    <p class="subtitle-text">Where Moments Come Alive</p>
+    <div class="fest-badge">✦ Cultural Fest 2026 ✦</div>
+  </div>
+  
+  <!-- Loading bar -->
+  <div class="loading-bar">
+    <div class="loading-progress"></div>
+  </div>
+  
+  <p class="entry-hint">Entering the gallery...</p>
+
+  <script>
+    const splashImages = [
+      '/img/splash/splash1.jpg',
+      '/img/splash/splash2.jpg',
+      '/img/splash/splash3.jpg',
+      '/img/splash/splash4.jpg',
+      '/img/splash/splash5.jpeg'
+    ];
+
+    let currentImageIndex = 0;
+    let backgroundInterval;
+
+    function initBackgroundCarousel() {
+      const carousel = document.getElementById('backgroundCarousel');
+      
+      splashImages.forEach((photo, index) => {
+        const bgDiv = document.createElement('div');
+        bgDiv.className = 'background-image';
+        bgDiv.style.backgroundImage = `url('${photo}')`;
+        if (index === 0) bgDiv.classList.add('active');
+        carousel.appendChild(bgDiv);
+      });
+
+      startCarousel();
+    }
+
+    function startCarousel() {
+      backgroundInterval = setInterval(() => {
+        const images = document.querySelectorAll('.background-image');
+        images[currentImageIndex].classList.remove('active');
+        currentImageIndex = (currentImageIndex + 1) % splashImages.length;
+        images[currentImageIndex].classList.add('active');
+      }, 2500);
+    }
+
+    function initSplashScreen() {
+      initBackgroundCarousel();
+      
+      setTimeout(() => {
+        clearInterval(backgroundInterval);
+        document.body.classList.add('splash-fade-out');
+        setTimeout(() => window.location.href = '/index1.html', 700);
+      }, 5500);
+    }
+
+    document.addEventListener('DOMContentLoaded', initSplashScreen);
+  </script>
+</body>
+</html>
       animation-delay: 0.2s;
     }
 

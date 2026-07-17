@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Falcons Gallery - Events</title>
+    <title>Falcons Gallery | Cultural Fest 2026</title>
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDR8B0ZKYF"></script>
@@ -11,19 +11,12 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-CDR8B0ZKYF');
     </script>
     
     <!-- Fonts & Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css" />
@@ -31,18 +24,33 @@
   </head>
 
   <body>
+    <!-- Decorative background elements -->
+    <div class="page-bg-decoration">
+      <div class="bg-blob blob-1"></div>
+      <div class="bg-blob blob-2"></div>
+      <div class="bg-blob blob-3"></div>
+      <div class="grain-overlay"></div>
+    </div>
+
     <!-- Header -->
     <header class="header">
       <div class="container">
         <nav class="nav">
           <div class="nav-left">
-            <img src="/img/falconswhite.png" alt="Falcons Logo" class="logo">
+            <a href="/" class="logo-link">
+              <img src="/img/falconswhite.png" alt="Falcons Logo" class="logo">
+              <span class="logo-text">Falcons</span>
+            </a>
+          </div>
+          
+          <div class="nav-center">
+            <span class="fest-pill">✦ Cultural Fest 2026</span>
           </div>
           
           <div class="nav-right">
             <a href="aboutus.html" class="nav-link">
-              <i class="fas fa-users"></i>
               <span>Our Team</span>
+              <i class="fas fa-arrow-right"></i>
             </a>
           </div>
         </nav>
@@ -53,10 +61,40 @@
     <section class="hero-main">
       <div class="container">
         <div class="hero-content-main">
-          <h1 class="main-title">Capture. Create. Celebrate.</h1>
-          <p class="main-subtitle">Experience our events through stunning photography</p>
-          <div class="hero-divider"></div>
+          <div class="hero-badge">
+            <span class="badge-icon">📸</span>
+            <span>Photo Gallery</span>
+          </div>
+          <h1 class="main-title">
+            <span class="title-line">Memories that</span>
+            <span class="title-line title-accent">Spark Joy</span>
+          </h1>
+          <p class="main-subtitle">Relive the magic of our cultural celebration through the lens of Falcons Media</p>
+          
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="eventCount">--</span>
+              <span class="stat-label">Events</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">1000+</span>
+              <span class="stat-label">Photos</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">∞</span>
+              <span class="stat-label">Memories</span>
+            </div>
+          </div>
         </div>
+      </div>
+      
+      <!-- Decorative elements -->
+      <div class="hero-decoration">
+        <div class="deco-circle circle-1"></div>
+        <div class="deco-circle circle-2"></div>
+        <div class="deco-line line-1"></div>
       </div>
     </section>
 
@@ -64,15 +102,32 @@
     <section class="gallery-section">
       <div class="container">
         <div class="gallery-header">
+          <div class="section-tag">Browse Collections</div>
           <h2 class="gallery-title">Event Galleries</h2>
-          <p class="gallery-subtitle">Browse through our collection of memorable moments</p>
+          <p class="gallery-subtitle">Click on any event to explore the photo collection</p>
         </div>
         
         <div class="events-grid" id="eventsGrid">
           <div class="loading-container">
             <div class="loading-spinner"></div>
-            <p class="loading-text">Loading galleries...</p>
+            <p class="loading-text">Fetching memories...</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <div class="cta-text">
+            <h3>Can't find your photos?</h3>
+            <p>Reach out to Falcons Media on Instagram</p>
+          </div>
+          <a href="https://www.instagram.com/falcons.of.bmsce/" class="cta-button" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span>Contact Us</span>
+          </a>
         </div>
       </div>
     </section>
@@ -82,19 +137,23 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-left">
-            <img src="/img/falconsblack.png" alt="Falcons Logo" class="footer-logo">
+            <img src="/img/falconswhite.png" alt="Falcons Logo" class="footer-logo">
             <div class="footer-text">
               <p class="footer-brand">Falcons of BMSCE</p>
-              <p class="footer-copyright">© 2025 All rights reserved</p>
+              <p class="footer-copyright">© 2026 All rights reserved</p>
             </div>
+          </div>
+          
+          <div class="footer-center">
+            <p class="made-with">Made with <span class="heart">♥</span> for the fest</p>
           </div>
           
           <div class="footer-right">
             <div class="social-links">
-              <a href="https://www.instagram.com/falcons.of.bmsce/" class="social-link" aria-label="Instagram">
+              <a href="https://www.instagram.com/falcons.of.bmsce/" class="social-link" aria-label="Instagram" target="_blank">
                 <i class="fab fa-instagram"></i>
               </a>
-              <a href="https://www.linkedin.com/company/falcons-of-bmsce/" class="social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/falcons-of-bmsce/" class="social-link" aria-label="LinkedIn" target="_blank">
                 <i class="fab fa-linkedin-in"></i>
               </a>
             </div>
@@ -107,10 +166,32 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         loadEvents();
+        addScrollAnimations();
       });
+
+      function addScrollAnimations() {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-in');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.event-card').forEach(card => {
+          observer.observe(card);
+        });
+      }
 
       async function loadEvents() {
         const eventsGrid = document.getElementById("eventsGrid");
+        const eventCountEl = document.getElementById("eventCount");
         
         try {
           const response = await fetch("/api/events");
@@ -119,52 +200,84 @@
           }
           const events = await response.json();
 
+          // Update event count
+          if (eventCountEl) {
+            eventCountEl.textContent = events.length || 0;
+          }
+
           if (!events || events.length === 0) {
             eventsGrid.innerHTML = `
               <div class="empty-state">
                 <div class="empty-icon">
-                  <i class="fas fa-images"></i>
+                  <i class="fas fa-camera-retro"></i>
                 </div>
-                <h3 class="empty-title">No galleries available</h3>
-                <p class="empty-text">Check back later for new photo galleries</p>
+                <h3 class="empty-title">Coming Soon!</h3>
+                <p class="empty-text">The galleries are being prepared. Check back after the fest begins!</p>
               </div>
             `;
             return;
           }
 
-          // Create event cards
-          eventsGrid.innerHTML = events.map(event => {
+          // Create event cards with staggered animation
+          eventsGrid.innerHTML = events.map((event, index) => {
             const date = new Date(event.createdTime || Date.now()).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'short',
               day: 'numeric'
             });
 
+            const colors = [
+              { gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', accent: '#667eea' },
+              { gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', accent: '#f5576c' },
+              { gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)', accent: '#4facfe' },
+              { gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)', accent: '#43e97b' },
+              { gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)', accent: '#fa709a' },
+              { gradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)', accent: '#a8edea' }
+            ];
+            const colorScheme = colors[index % colors.length];
+
             return `
-              <div class="event-card">
+              <article class="event-card" style="--card-accent: ${colorScheme.accent}; animation-delay: ${index * 0.1}s">
                 <a href="/event.html?folder=${encodeURIComponent(event.name)}" class="event-link">
                   <div class="event-image">
                     ${event.coverId 
                       ? `<img src="/api/imageproxy/${event.coverId}?size=w400" alt="${event.name}" loading="lazy">` 
-                      : `<div class="event-placeholder"><i class="fas fa-images"></i></div>`
+                      : `<div class="event-placeholder" style="background: ${colorScheme.gradient}"><i class="fas fa-images"></i></div>`
                     }
+                    <div class="event-overlay">
+                      <span class="view-gallery">View Gallery <i class="fas fa-arrow-right"></i></span>
+                    </div>
                   </div>
                   <div class="event-info">
+                    <div class="event-meta-top">
+                      <span class="event-date"><i class="far fa-calendar"></i> ${date}</span>
+                    </div>
                     <h3 class="event-title">${event.name}</h3>
-                    <p class="event-date">${date}</p>
+                    <div class="event-footer">
+                      <span class="photo-hint"><i class="fas fa-images"></i> Photos</span>
+                    </div>
                   </div>
                 </a>
-              </div>
+                <div class="card-decoration"></div>
+              </article>
             `;
           }).join("");
+
+          // Re-observe new cards for animation
+          setTimeout(() => addScrollAnimations(), 100);
 
         } catch (error) {
           console.error("Error loading events:", error);
           eventsGrid.innerHTML = `
-            <div class="error-message">
-              <i class="fas fa-exclamation-triangle"></i>
-              <h3>Failed to load events</h3>
-              <p>Please try again later</p>
+            <div class="error-state">
+              <div class="error-icon">
+                <i class="fas fa-cloud-sun-rain"></i>
+              </div>
+              <h3>Oops! Something went wrong</h3>
+              <p>We couldn't load the galleries. Please refresh the page.</p>
+              <button onclick="location.reload()" class="retry-btn">
+                <i class="fas fa-redo"></i> Try Again
+              </button>
             </div>
           `;
         }
